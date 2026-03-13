@@ -2,12 +2,12 @@
   "name": "as-sellerie",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+"scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "opennextjs-cloudflare build"
+    "lint": "next lint",
+    "deploy": "npx opennextjs-cloudflare build"
   },
   "dependencies": {
     "framer-motion": "^12.36.0",
