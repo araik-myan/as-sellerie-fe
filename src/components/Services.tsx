@@ -2,35 +2,38 @@
 
 import { motion } from "framer-motion";
 import TransitionLink from "./TransitionLink";
-
-const services = [
-  {
-    title: "Automobile",
-    subtitle: "Sellerie sur mesure",
-    image: "/images/sections/auto.webp",
-    href: "/sellerie/auto",
-  },
-  {
-    title: "Moto",
-    subtitle: "Selles & accessoires",
-    image: "/images/sections/moto.webp",
-    href: "/sellerie/moto",
-  },
-  {
-    title: "Divers",
-    subtitle: "Créations variées",
-    image: "/images/sections/divers.webp",
-    href: "/sellerie/divers",
-  },
-  {
-    title: "Broderie",
-    subtitle: "Personnalisation",
-    image: "/images/sections/broderie.webp",
-    href: "/sellerie/broderie",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Services() {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      title: t.services.auto.title,
+      subtitle: t.services.auto.subtitle,
+      image: "/images/sections/auto.webp",
+      href: "/sellerie/auto",
+    },
+    {
+      title: t.services.moto.title,
+      subtitle: t.services.moto.subtitle,
+      image: "/images/sections/moto.webp",
+      href: "/sellerie/moto",
+    },
+    {
+      title: t.services.divers.title,
+      subtitle: t.services.divers.subtitle,
+      image: "/images/sections/divers.webp",
+      href: "/sellerie/divers",
+    },
+    {
+      title: t.services.broderie.title,
+      subtitle: t.services.broderie.subtitle,
+      image: "/images/sections/broderie.webp",
+      href: "/sellerie/broderie",
+    },
+  ];
+
   return (
     <section id="realisations" className="py-24 lg:py-36 bg-dark-secondary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -43,15 +46,14 @@ export default function Services() {
           className="text-center mb-20"
         >
           <span className="text-gold text-xs tracking-[0.35em] uppercase">
-            Portfolio
+            {t.services.label}
           </span>
           <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl text-cream mt-4">
-            Nos Réalisations
+            {t.services.title}
           </h2>
           <div className="w-16 h-[1px] bg-gold/50 mx-auto mt-6" />
           <p className="text-cream/40 font-light mt-6 max-w-xl mx-auto text-[15px] leading-relaxed">
-            Découvrez notre savoir-faire à travers nos réalisations en sellerie
-            automobile, moto, broderie et créations diverses.
+            {t.services.description}
           </p>
         </motion.div>
 
@@ -101,7 +103,7 @@ export default function Services() {
                 <div className="absolute bottom-5 left-5 w-10 h-10 border-l border-b border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
                 <div className="absolute bottom-5 right-5 w-10 h-10 border-r border-b border-gold/0 group-hover:border-gold/50 transition-all duration-500" />
 
-                {/* Arrow icon — sporty skew */}
+                {/* Arrow icon */}
                 <div className="absolute bottom-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-2 group-hover:translate-x-0">
                   <svg
                     className="w-5 h-5 text-gold"

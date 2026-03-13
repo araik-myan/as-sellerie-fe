@@ -12,8 +12,12 @@ import { motion } from "framer-motion";
 
 type Phase = "idle" | "enter" | "exit";
 
-const TransitionCtx = createContext<{ navigateTo: (href: string) => void }>({
+const TransitionCtx = createContext<{
+  navigateTo: (href: string) => void;
+  playTransition: (onMidpoint: () => void) => void;
+}>({
   navigateTo: () => {},
+  playTransition: () => {},
 });
 
 export const usePageTransition = () => useContext(TransitionCtx);
@@ -28,28 +32,44 @@ export default function TransitionProvider({
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>("idle");
 
-  const navigateTo = useCallback(
-    (href: string) => {
+  const runTransition = useCallback(
+    (onMidpoint: () => void) => {
       if (phase !== "idle") return;
       setPhase("enter");
 
       setTimeout(() => {
-        router.push(href);
+        onMidpoint();
         setTimeout(() => {
-          window.scrollTo({ top: 0 });
           setPhase("exit");
           setTimeout(() => setPhase("idle"), 650);
         }, 200);
       }, 600);
     },
-    [router, phase]
+    [phase]
+  );
+
+  const navigateTo = useCallback(
+    (href: string) => {
+      runTransition(() => {
+        router.push(href);
+        window.scrollTo({ top: 0 });
+      });
+    },
+    [router, runTransition]
+  );
+
+  const playTransition = useCallback(
+    (onMidpoint: () => void) => {
+      runTransition(onMidpoint);
+    },
+    [runTransition]
   );
 
   const active = phase !== "idle";
   const dest = phase === "enter" ? "0%" : "-120%";
 
   return (
-    <TransitionCtx.Provider value={{ navigateTo }}>
+    <TransitionCtx.Provider value={{ navigateTo, playTransition }}>
       {children}
 
       {active && (
@@ -57,10 +77,10 @@ export default function TransitionProvider({
           className="fixed inset-0 z-[100] overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
-          {/* Panel 1 — dark accent with skew (arrives first, leaves last) */}
+          {/* Panel 1 — dark accent with skew */}
           <motion.div
             className="absolute inset-y-0 -inset-x-[15%] bg-dark-card"
-            style={{ skewX: "-4deg" }}
+            style={{ transform: "skewX(-4deg)" }}
             initial={phase === "enter" ? { x: "120%" } : undefined}
             animate={{ x: dest }}
             transition={{
@@ -73,7 +93,7 @@ export default function TransitionProvider({
           {/* Panel 2 — main dark with gold left edge + brand mark */}
           <motion.div
             className="absolute inset-y-0 -inset-x-[15%] bg-dark border-l-[3px] border-gold/60 flex items-center justify-center"
-            style={{ skewX: "-4deg" }}
+            style={{ transform: "skewX(-4deg)" }}
             initial={phase === "enter" ? { x: "120%" } : undefined}
             animate={{ x: dest }}
             transition={{
@@ -83,7 +103,7 @@ export default function TransitionProvider({
             }}
           >
             {/* Brand mark (un-skewed) */}
-            <div style={{ skewX: "4deg" }} className="text-center select-none">
+            <div style={{ transform: "skewX(4deg)" }} className="text-center select-none">
               <motion.div
                 initial={{ opacity: 0, scale: 0.92 }}
                 animate={{
@@ -106,10 +126,10 @@ export default function TransitionProvider({
             </div>
           </motion.div>
 
-          {/* Diagonal speed lines — sporty accent */}
+          {/* Diagonal speed lines */}
           <motion.div
             className="absolute inset-y-0 -inset-x-[15%]"
-            style={{ skewX: "-4deg" }}
+            style={{ transform: "skewX(-4deg)" }}
             initial={phase === "enter" ? { x: "120%" } : undefined}
             animate={{ x: dest }}
             transition={{

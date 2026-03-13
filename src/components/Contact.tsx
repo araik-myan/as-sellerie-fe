@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,10 +39,10 @@ export default function Contact() {
           className="text-center mb-20"
         >
           <span className="text-gold text-xs tracking-[0.35em] uppercase">
-            Contact
+            {t.contact.label}
           </span>
           <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl text-cream mt-4">
-            Nous Contacter
+            {t.contact.title}
           </h2>
           <div className="w-16 h-[1px] bg-gold/50 mx-auto mt-6" />
         </motion.div>
@@ -52,7 +54,7 @@ export default function Contact() {
               {/* Address */}
               <div>
                 <h3 className="text-gold font-display text-lg mb-4 tracking-wide">
-                  Adresse
+                  {t.contact.address}
                 </h3>
                 <a
                   href="https://maps.google.com/?q=4+rue+Anatole+France+54250+Champigneulles"
@@ -92,7 +94,7 @@ export default function Contact() {
               {/* Phone & Email */}
               <div>
                 <h3 className="text-gold font-display text-lg mb-4 tracking-wide">
-                  Contact
+                  {t.contact.contactLabel}
                 </h3>
                 <div className="space-y-3">
                   <a
@@ -139,7 +141,7 @@ export default function Contact() {
               {/* Hours */}
               <div>
                 <h3 className="text-gold font-display text-lg mb-4 tracking-wide">
-                  Horaires
+                  {t.contact.hours}
                 </h3>
                 <div className="flex items-start gap-3">
                   <svg
@@ -156,9 +158,9 @@ export default function Contact() {
                     />
                   </svg>
                   <p className="text-cream/50 font-light text-[15px]">
-                    Du lundi au samedi
+                    {t.contact.hoursText}
                     <br />
-                    09h00 — 19h00
+                    {t.contact.hoursTime}
                   </p>
                 </div>
               </div>
@@ -166,7 +168,7 @@ export default function Contact() {
               {/* Social */}
               <div>
                 <h3 className="text-gold font-display text-lg mb-4 tracking-wide">
-                  Réseaux sociaux
+                  {t.contact.social}
                 </h3>
                 <div className="flex gap-3">
                   <a
@@ -208,7 +210,7 @@ export default function Contact() {
               <div className="grid sm:grid-cols-2 gap-8">
                 <div>
                   <label className="text-cream/40 text-xs tracking-[0.2em] uppercase block mb-3">
-                    Nom complet
+                    {t.contact.form.name}
                   </label>
                   <input
                     type="text"
@@ -218,12 +220,12 @@ export default function Contact() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     className="w-full bg-transparent border-b border-dark-border focus:border-gold px-0 py-3 text-cream font-light outline-none transition-colors duration-300"
-                    placeholder="Votre nom"
+                    placeholder={t.contact.form.namePlaceholder}
                   />
                 </div>
                 <div>
                   <label className="text-cream/40 text-xs tracking-[0.2em] uppercase block mb-3">
-                    Email
+                    {t.contact.form.email}
                   </label>
                   <input
                     type="email"
@@ -233,14 +235,14 @@ export default function Contact() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     className="w-full bg-transparent border-b border-dark-border focus:border-gold px-0 py-3 text-cream font-light outline-none transition-colors duration-300"
-                    placeholder="votre@email.fr"
+                    placeholder={t.contact.form.emailPlaceholder}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="text-cream/40 text-xs tracking-[0.2em] uppercase block mb-3">
-                  Sujet
+                  {t.contact.form.subject}
                 </label>
                 <select
                   value={formData.subject}
@@ -250,35 +252,32 @@ export default function Contact() {
                   className="w-full bg-transparent border-b border-dark-border focus:border-gold px-0 py-3 text-cream font-light outline-none transition-colors duration-300 appearance-none cursor-pointer"
                 >
                   <option value="Auto" className="bg-dark-card text-cream">
-                    Automobile
+                    {t.contact.form.subjects.auto}
                   </option>
                   <option value="Moto" className="bg-dark-card text-cream">
-                    Moto
+                    {t.contact.form.subjects.moto}
                   </option>
-                  <option
-                    value="Tapisserie"
-                    className="bg-dark-card text-cream"
-                  >
-                    Tapisserie
+                  <option value="Tapisserie" className="bg-dark-card text-cream">
+                    {t.contact.form.subjects.tapisserie}
                   </option>
-                  <option value="Médical" className="bg-dark-card text-cream">
-                    Médical
+                  <option value="M\u00E9dical" className="bg-dark-card text-cream">
+                    {t.contact.form.subjects.medical}
                   </option>
                   <option value="Nautique" className="bg-dark-card text-cream">
-                    Nautique
+                    {t.contact.form.subjects.nautique}
                   </option>
                   <option value="Broderie" className="bg-dark-card text-cream">
-                    Broderie
+                    {t.contact.form.subjects.broderie}
                   </option>
                   <option value="Autre" className="bg-dark-card text-cream">
-                    Autre
+                    {t.contact.form.subjects.autre}
                   </option>
                 </select>
               </div>
 
               <div>
                 <label className="text-cream/40 text-xs tracking-[0.2em] uppercase block mb-3">
-                  Message
+                  {t.contact.form.message}
                 </label>
                 <textarea
                   required
@@ -288,7 +287,7 @@ export default function Contact() {
                     setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full bg-transparent border-b border-dark-border focus:border-gold px-0 py-3 text-cream font-light outline-none transition-colors duration-300 resize-none"
-                  placeholder="Décrivez votre projet..."
+                  placeholder={t.contact.form.messagePlaceholder}
                 />
               </div>
 
@@ -297,7 +296,9 @@ export default function Contact() {
                 className="w-full sm:w-auto px-14 py-4 bg-gold text-dark text-[13px] tracking-[0.2em] uppercase font-medium hover:bg-gold-light transition-all duration-300 relative overflow-hidden group"
               >
                 <span className="relative z-10">
-                  {submitted ? "Message envoyé" : "Envoyer le message"}
+                  {submitted
+                    ? t.contact.form.submitted
+                    : t.contact.form.submit}
                 </span>
               </button>
             </form>

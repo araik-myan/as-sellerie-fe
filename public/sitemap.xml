@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.as-sellerie.fr/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.as-sellerie.fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.as-sellerie.fr/" />
+  </url>
+  <url>
+    <loc>https://www.as-sellerie.fr/sellerie/auto</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.as-sellerie.fr/sellerie/auto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.as-sellerie.fr/sellerie/auto" />
+  </url>
+  <url>
+    <loc>https://www.as-sellerie.fr/sellerie/moto</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.as-sellerie.fr/sellerie/moto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.as-sellerie.fr/sellerie/moto" />
+  </url>
+  <url>
+    <loc>https://www.as-sellerie.fr/sellerie/divers</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.as-sellerie.fr/sellerie/divers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.as-sellerie.fr/sellerie/divers" />
+  </url>
+  <url>
+    <loc>https://www.as-sellerie.fr/sellerie/broderie</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.as-sellerie.fr/sellerie/broderie" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.as-sellerie.fr/sellerie/broderie" />
+  </url>
+  <url>
+    <loc>https://www.as-sellerie.fr/mentions-legales</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

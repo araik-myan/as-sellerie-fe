@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import Logo from "./Logo";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -20,27 +24,21 @@ export default function Hero() {
         className="absolute inset-0 overflow-hidden pointer-events-none"
         aria-hidden="true"
       >
-        {/* Top-right speed lines */}
         <div className="absolute top-[12%] -right-[25%] w-[100%] h-[1px] bg-gradient-to-l from-transparent via-gold/20 to-transparent rotate-[-28deg]" />
         <div className="absolute top-[22%] -right-[15%] w-[70%] h-[1px] bg-gradient-to-l from-transparent via-gold/12 to-transparent rotate-[-28deg]" />
         <div className="absolute top-[30%] -right-[10%] w-[50%] h-[1px] bg-gradient-to-l from-transparent via-gold/8 to-transparent rotate-[-28deg]" />
-        {/* Bottom-left speed lines */}
         <div className="absolute bottom-[15%] -left-[25%] w-[90%] h-[1px] bg-gradient-to-r from-transparent via-gold/15 to-transparent rotate-[-28deg]" />
         <div className="absolute bottom-[25%] -left-[15%] w-[60%] h-[1px] bg-gradient-to-r from-transparent via-gold/8 to-transparent rotate-[-28deg]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-cream tracking-wider">
-            AS{" "}
-            <span className="text-gold">Sellerie</span>
+        {/* Logo with sporty animation */}
+        <div className="flex justify-center">
+          <h1>
+            <Logo size="lg" animate />
           </h1>
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ scaleX: 0 }}
@@ -55,7 +53,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-cream/60 text-sm sm:text-base md:text-lg tracking-[0.4em] uppercase font-light"
         >
-          Sellier &middot; Tapissier &middot; Garnisseur
+          {t.hero.subtitle}
         </motion.p>
 
         {/* Google Rating */}
@@ -77,11 +75,11 @@ export default function Hero() {
             ))}
           </div>
           <span className="text-cream/40 text-xs tracking-wider">
-            5.0 sur Google
+            {t.hero.rating}
           </span>
         </motion.div>
 
-        {/* CTA buttons — sporty skew style */}
+        {/* CTA buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,17 +90,13 @@ export default function Hero() {
             href="#realisations"
             className="px-10 py-3.5 bg-gold text-dark text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-gold-light transition-all duration-300 skew-x-[-3deg]"
           >
-            <span className="inline-block skew-x-[3deg]">
-              Nos Réalisations
-            </span>
+            <span className="inline-block skew-x-[3deg]">{t.hero.cta1}</span>
           </a>
           <a
             href="#contact"
             className="px-10 py-3.5 border border-cream/20 text-cream/70 text-[13px] tracking-[0.15em] uppercase hover:border-gold hover:text-gold transition-all duration-300 skew-x-[-3deg]"
           >
-            <span className="inline-block skew-x-[3deg]">
-              Nous Contacter
-            </span>
+            <span className="inline-block skew-x-[3deg]">{t.hero.cta2}</span>
           </a>
         </motion.div>
       </div>
@@ -120,7 +114,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-3"
         >
           <span className="text-cream/30 text-[10px] tracking-[0.4em] uppercase">
-            Défiler
+            {t.hero.scroll}
           </span>
           <div className="w-[1px] h-8 bg-gradient-to-b from-gold/60 to-transparent" />
         </motion.div>

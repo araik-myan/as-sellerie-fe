@@ -3,18 +3,22 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TransitionLink from "./TransitionLink";
-
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Auto", href: "/sellerie/auto" },
-  { label: "Moto", href: "/sellerie/moto" },
-  { label: "Divers", href: "/sellerie/divers" },
-  { label: "Broderie", href: "/sellerie/broderie" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import Logo from "./Logo";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.auto, href: "/sellerie/auto" },
+    { label: t.nav.moto, href: "/sellerie/moto" },
+    { label: t.nav.divers, href: "/sellerie/divers" },
+    { label: t.nav.broderie, href: "/sellerie/broderie" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -45,16 +49,9 @@ export default function Navbar() {
         {/* Logo */}
         <TransitionLink
           href="/"
-          className="flex items-center gap-3 group relative z-50"
+          className="relative z-50 group"
         >
-          <span className="text-gold font-display text-3xl tracking-wider">
-            AS
-          </span>
-          <div className="flex flex-col">
-            <span className="text-cream/90 text-xs tracking-[0.35em] uppercase font-light">
-              Sellerie
-            </span>
-          </div>
+          <Logo size="sm" />
         </TransitionLink>
 
         {/* Desktop nav */}
@@ -69,11 +66,12 @@ export default function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300" />
             </TransitionLink>
           ))}
+          <LanguageSwitcher />
           <a
             href="/#contact"
-            className="ml-4 px-7 py-2.5 border border-gold/40 text-gold text-[13px] tracking-[0.15em] uppercase hover:bg-gold hover:text-dark transition-all duration-300 skew-x-[-2deg]"
+            className="ml-2 px-7 py-2.5 border border-gold/40 text-gold text-[13px] tracking-[0.15em] uppercase hover:bg-gold hover:text-dark transition-all duration-300 skew-x-[-2deg]"
           >
-            <span className="inline-block skew-x-[2deg]">Contact</span>
+            <span className="inline-block skew-x-[2deg]">{t.nav.contact}</span>
           </a>
         </div>
 
@@ -81,7 +79,7 @@ export default function Navbar() {
         <button
           className="lg:hidden relative z-50 flex flex-col items-center justify-center w-10 h-10 gap-[6px]"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label={t.nav.menu}
         >
           <span
             className={`block w-6 h-[1px] bg-gold transition-all duration-300 origin-center ${
@@ -137,14 +135,23 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.38 }}
+              >
+                <LanguageSwitcher />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.44 }}
               >
                 <a
                   href="/#contact"
                   onClick={() => setMenuOpen(false)}
                   className="mt-4 px-10 py-3 border border-gold/40 text-gold text-sm tracking-[0.2em] uppercase hover:bg-gold hover:text-dark transition-all duration-300 skew-x-[-2deg] inline-block"
                 >
-                  <span className="inline-block skew-x-[2deg]">Contact</span>
+                  <span className="inline-block skew-x-[2deg]">
+                    {t.nav.contact}
+                  </span>
                 </a>
               </motion.div>
             </div>

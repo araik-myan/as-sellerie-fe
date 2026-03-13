@@ -1,6 +1,11 @@
+"use client";
+
 import TransitionLink from "./TransitionLink";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-dark border-t border-gold/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
@@ -18,15 +23,14 @@ export default function Footer() {
               </div>
             </TransitionLink>
             <p className="text-cream/35 font-light text-sm leading-relaxed max-w-xs">
-              Sellier Tapissier Garnisseur — Artisan d&apos;art spécialisé dans la
-              sellerie automobile, moto et la broderie sur mesure depuis Nancy.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Contact */}
           <div>
             <h4 className="text-gold font-display text-lg mb-6 tracking-wide">
-              Contact
+              {t.footer.contactTitle}
             </h4>
             <div className="space-y-3 text-cream/40 font-light text-sm">
               <p>
@@ -57,23 +61,23 @@ export default function Footer() {
                   contact@as-sellerie.fr
                 </a>
               </p>
-              <p className="pt-1">Lun — Sam : 09h00 — 19h00</p>
+              <p className="pt-1">{t.footer.hours}</p>
             </div>
           </div>
 
           {/* Navigation + Social */}
           <div>
             <h4 className="text-gold font-display text-lg mb-6 tracking-wide">
-              Plan du site
+              {t.footer.sitemapTitle}
             </h4>
             <div className="grid grid-cols-2 gap-x-6 gap-y-3">
               {[
-                { label: "Accueil", href: "/" },
-                { label: "Auto", href: "/sellerie/auto" },
-                { label: "Moto", href: "/sellerie/moto" },
-                { label: "Divers", href: "/sellerie/divers" },
-                { label: "Broderie", href: "/sellerie/broderie" },
-                { label: "Mentions légales", href: "/mentions-legales" },
+                { label: t.footer.links.home, href: "/" },
+                { label: t.footer.links.auto, href: "/sellerie/auto" },
+                { label: t.footer.links.moto, href: "/sellerie/moto" },
+                { label: t.footer.links.divers, href: "/sellerie/divers" },
+                { label: t.footer.links.broderie, href: "/sellerie/broderie" },
+                { label: t.footer.links.legal, href: "/mentions-legales" },
               ].map((link) => (
                 <TransitionLink
                   key={link.href}
@@ -118,17 +122,17 @@ export default function Footer() {
       <div className="border-t border-gold/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-cream/20 text-xs font-light tracking-wider">
-            &copy; 2025 AS Sellerie — Tous droits réservés.
+            {t.footer.copyright}
           </p>
           <p className="text-cream/20 text-xs font-light tracking-wider">
-            Créé par{" "}
+            {t.footer.createdBy}{" "}
             <a
               href="https://www.araikmadaryan.dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors duration-300"
             >
-              Araïk MADARYAN
+              Ara\u00EFk MADARYAN
             </a>
           </p>
         </div>

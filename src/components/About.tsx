@@ -1,8 +1,11 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="artisan" className="py-24 lg:py-36 relative overflow-hidden">
       {/* Subtle background texture */}
@@ -28,10 +31,10 @@ export default function About() {
               {/* Floating badge */}
               <div className="absolute -bottom-6 -left-2 lg:left-8 bg-dark-card border border-gold/20 px-6 py-4">
                 <p className="text-gold font-display text-sm tracking-wider">
-                  Artisan d&apos;Art
+                  {t.about.badge}
                 </p>
                 <p className="text-cream/40 text-xs tracking-wider mt-1">
-                  Nancy &middot; France
+                  {t.about.badgeLocation}
                 </p>
               </div>
             </div>
@@ -41,43 +44,24 @@ export default function About() {
           <AnimatedSection direction="right" delay={0.15}>
             <div className="lg:pl-4">
               <span className="text-gold text-xs tracking-[0.35em] uppercase">
-                À propos
+                {t.about.label}
               </span>
               <h2 className="font-display text-4xl lg:text-5xl xl:text-6xl text-cream mt-4 mb-8 leading-tight">
-                Votre Artisan
+                {t.about.title1}
                 <br />
-                <span className="text-gold/80">d&apos;Art</span>
+                <span className="text-gold/80">{t.about.title2}</span>
               </h2>
               <div className="w-16 h-[1px] bg-gold/50 mb-8" />
 
               <div className="space-y-5 text-cream/60 leading-[1.8] font-light text-[15px]">
-                <p>
-                  Des années mêmes avant la consécration à mon artisanat, je
-                  soignais ma passion et mon expérience pour la réalisation de
-                  beaux objets.
-                </p>
-                <p>
-                  Le respect, et le travail bien fait sont plus que jamais mes
-                  valeurs, afin de garantir un résultat au plus juste de la
-                  branche traditionnelle, en perpétuant les gestes et le savoir
-                  de nos artisans d&apos;hier.
-                </p>
-                <p>
-                  Un savoir diversifié par les domaines de l&apos;auto, moto,
-                  camping-car, tapisserie, équipement médical et nautique. Quel
-                  que soit votre besoin, de la création à la rénovation, ou la
-                  personnalisation, je prendrai soin de vous conseiller.
-                </p>
-                <p>
-                  Nos clients comptent parmi des professionnels, et des
-                  particuliers de toute la France, ainsi un large choix de
-                  couleurs et de matières vous sont proposés, afin que le
-                  résultat corresponde à vos attentes.
-                </p>
+                <p>{t.about.p1}</p>
+                <p>{t.about.p2}</p>
+                <p>{t.about.p3}</p>
+                <p>{t.about.p4}</p>
               </div>
 
               <p className="mt-10 text-gold font-display text-xl italic tracking-wide">
-                — Votre sellier garnisseur
+                {t.about.signature}
               </p>
             </div>
           </AnimatedSection>
