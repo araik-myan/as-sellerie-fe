@@ -79,7 +79,8 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" sizes="any" />
         <link rel="canonical" href="https://www.as-sellerie.fr" />
         <link
           rel="alternate"
