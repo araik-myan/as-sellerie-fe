@@ -11,7 +11,7 @@ export default function Logo({ size = "sm", animate = false }: Props) {
   const isLg = size === "lg";
 
   return (
-    <div className="relative group flex items-center gap-3">
+    <div className={`relative group flex items-center ${isLg ? "gap-3" : "gap-1.5"}`}>
       {/* AS letters */}
       <div className="relative">
         <motion.span
@@ -55,7 +55,7 @@ export default function Logo({ size = "sm", animate = false }: Props) {
             Sellerie
           </motion.span>
         ) : (
-          <span className="text-cream/90 text-xs tracking-[0.35em] uppercase font-light">
+          <span className="text-cream/90 font-display text-lg tracking-wider">
             Sellerie
           </span>
         )}

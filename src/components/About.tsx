@@ -19,9 +19,12 @@ export default function About() {
               <div className="relative overflow-hidden">
                 <img
                   src="/images/sellier.webp"
-                  alt="Artisan sellier garnisseur au travail"
+                  alt="Artisan sellier garnisseur au travail dans son atelier à Champigneulles près de Nancy"
                   className="w-full h-[450px] sm:h-[550px] lg:h-[650px] object-cover"
                   loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={650}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent" />
               </div>

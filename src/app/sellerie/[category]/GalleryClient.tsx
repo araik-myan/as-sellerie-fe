@@ -186,9 +186,10 @@ export default function GalleryClient({ category, data }: Props) {
                   >
                     <img
                       src={item.imagePath}
-                      alt={item.title}
+                      alt={`${item.title} — Sellerie ${catT.title} par AS Sellerie`}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                       loading="lazy"
+                      decoding="async"
                     />
                     {/* Dark overlay */}
                     <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/40 transition-all duration-500" />

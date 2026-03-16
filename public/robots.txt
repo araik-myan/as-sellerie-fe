@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_next/
 
 Sitemap: https://www.as-sellerie.fr/sitemap.xml

@@ -70,9 +70,10 @@ export default function Leather() {
             <div className="relative">
               <img
                 src="/images/moreleather.webp"
-                alt="Mat\u00E9riaux de sellerie de qualit\u00E9"
+                alt="Cuir, alcantara et matériaux nobles pour sellerie automobile et moto"
                 className="w-full h-[400px] sm:h-[450px] lg:h-[550px] object-cover"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute -top-3 -right-3 w-20 h-20 border-r-[2px] border-t-[2px] border-gold/30" />
               <div className="absolute -bottom-3 -left-3 w-20 h-20 border-l-[2px] border-b-[2px] border-gold/30" />
