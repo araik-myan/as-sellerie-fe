@@ -125,15 +125,7 @@ export default function Footer() {
             {t.footer.copyright}
           </p>
           <p className="text-cream/20 text-xs font-light tracking-wider">
-            {t.footer.createdBy}{" "}
-            <a
-              href="https://www.araikmadaryan.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gold transition-colors duration-300"
-            >
-              Ara\u00EFk MADARYAN
-            </a>
+            {t.footer.createdBy} Araïk MADARYAN
           </p>
         </div>
       </div>

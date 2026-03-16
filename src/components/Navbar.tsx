@@ -38,68 +38,73 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-dark/95 backdrop-blur-md border-b border-gold/10"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
-        {/* Logo */}
-        <TransitionLink
-          href="/"
-          className="relative z-50 group"
-        >
-          <Logo size="sm" />
-        </TransitionLink>
-
-        {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <TransitionLink
-              key={link.href}
-              href={link.href}
-              className="text-cream/60 hover:text-gold text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 relative group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300" />
-            </TransitionLink>
-          ))}
-          <LanguageSwitcher />
-          <a
-            href="/#contact"
-            className="ml-2 px-7 py-2.5 border border-gold/40 text-gold text-[13px] tracking-[0.15em] uppercase hover:bg-gold hover:text-dark transition-all duration-300 skew-x-[-2deg]"
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-500 ${
+          scrolled
+            ? "bg-dark/95 backdrop-blur-md border-b border-gold/10"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+          {/* Logo */}
+          <TransitionLink
+            href="/"
+            className="relative z-50 group"
           >
-            <span className="inline-block skew-x-[2deg]">{t.nav.contact}</span>
-          </a>
+            <Logo size="sm" />
+          </TransitionLink>
+
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <TransitionLink
+                key={link.href}
+                href={link.href}
+                className="text-cream/60 hover:text-gold text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300" />
+              </TransitionLink>
+            ))}
+            <LanguageSwitcher />
+            <a
+              href="/#contact"
+              className="ml-2 px-7 py-2.5 border border-gold/40 text-gold text-[13px] tracking-[0.15em] uppercase hover:bg-gold hover:text-dark transition-all duration-300 skew-x-[-2deg]"
+            >
+              <span className="inline-block skew-x-[2deg]">{t.nav.contact}</span>
+            </a>
+          </div>
+
+          {/* Spacer for hamburger */}
+          <div className="lg:hidden w-10 h-10" />
         </div>
+      </nav>
 
-        {/* Hamburger button */}
-        <button
-          className="lg:hidden relative z-50 flex flex-col items-center justify-center w-10 h-10 gap-[6px]"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={t.nav.menu}
-        >
-          <span
-            className={`block w-6 h-[1px] bg-gold transition-all duration-300 origin-center ${
-              menuOpen ? "rotate-45 translate-y-[7px]" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[1px] bg-gold transition-all duration-300 ${
-              menuOpen ? "opacity-0 scale-x-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[1px] bg-gold transition-all duration-300 origin-center ${
-              menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-            }`}
-          />
-        </button>
-      </div>
+      {/* Hamburger button — outside nav to stay above overlay */}
+      <button
+        className="lg:hidden fixed top-5 right-6 z-[60] flex flex-col items-center justify-center w-10 h-10 gap-[6px]"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label={t.nav.menu}
+      >
+        <span
+          className={`block w-6 h-[1px] bg-gold transition-all duration-300 origin-center ${
+            menuOpen ? "rotate-45 translate-y-[7px]" : ""
+          }`}
+        />
+        <span
+          className={`block w-6 h-[1px] bg-gold transition-all duration-300 ${
+            menuOpen ? "opacity-0 scale-x-0" : ""
+          }`}
+        />
+        <span
+          className={`block w-6 h-[1px] bg-gold transition-all duration-300 origin-center ${
+            menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+          }`}
+        />
+      </button>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile fullscreen menu — outside nav to avoid backdrop-blur containing block */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -107,9 +112,9 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-dark/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-50 bg-dark/98 backdrop-blur-xl lg:hidden"
           >
-            {/* Sporty diagonal accent */}
+            {/* Diagonal accent */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-[15%] -right-[30%] w-[160%] h-[1px] bg-gradient-to-r from-transparent via-gold/10 to-transparent rotate-[-25deg]" />
               <div className="absolute bottom-[20%] -left-[30%] w-[160%] h-[1px] bg-gradient-to-r from-transparent via-gold/8 to-transparent rotate-[-25deg]" />
@@ -158,6 +163,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
