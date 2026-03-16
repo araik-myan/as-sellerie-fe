@@ -21,11 +21,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "AS Sellerie — Sellier Tapissier Garnisseur | Nancy",
+  title: "AS Sellerie — Sellier Tapissier Garnisseur | Nancy, Meurthe-et-Moselle",
   description:
-    "AS Sellerie, votre artisan sellier tapissier garnisseur à Nancy (54). Sellerie automobile, moto, broderie sur mesure. Cuir, alcantara, vinyle. Devis gratuit.",
+    "AS Sellerie, votre artisan sellier tapissier garnisseur à Nancy, Meurthe-et-Moselle (54), Grand Est. Sellerie automobile, moto, broderie sur mesure. Cuir, alcantara, vinyle. Devis gratuit.",
   keywords:
-    "sellerie, tapissier, garnisseur, nancy, automobile, moto, broderie, cuir, artisan, upholstery, trimmer, craftsman",
+    "sellerie, tapissier, garnisseur, nancy, meurthe-et-moselle, grand est, 54, champigneulles, automobile, moto, broderie, cuir, artisan, upholstery, trimmer, craftsman",
   alternates: {
     languages: {
       "fr-FR": "https://www.as-sellerie.fr",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AS Sellerie — Sellier Tapissier Garnisseur",
+    title: "AS Sellerie — Sellier Tapissier Garnisseur | Nancy, Grand Est",
     description:
-      "Votre artisan sellier tapissier garnisseur à Nancy. Sellerie automobile, moto, broderie sur mesure.",
+      "Votre artisan sellier tapissier garnisseur à Nancy, Meurthe-et-Moselle (54). Sellerie automobile, moto, broderie sur mesure.",
     type: "website",
     locale: "fr_FR",
     alternateLocale: "en_US",
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
         url: "https://www.as-sellerie.fr/images/homepage.webp",
         width: 1200,
         height: 630,
-        alt: "AS Sellerie — Sellier Tapissier Garnisseur à Nancy",
+        alt: "AS Sellerie — Sellier Tapissier Garnisseur à Nancy, Meurthe-et-Moselle",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AS Sellerie — Sellier Tapissier Garnisseur | Nancy",
+    title: "AS Sellerie — Sellier Tapissier Garnisseur | Nancy, Meurthe-et-Moselle",
     description:
-      "Votre artisan sellier tapissier garnisseur à Nancy. Sellerie automobile, moto, broderie sur mesure.",
+      "Votre artisan sellier tapissier garnisseur à Nancy, Meurthe-et-Moselle (54). Sellerie automobile, moto, broderie sur mesure.",
     images: ["https://www.as-sellerie.fr/images/homepage.webp"],
   },
   robots: {
@@ -104,7 +104,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "AS Sellerie",
               description:
-                "Artisan sellier tapissier garnisseur à Nancy. Sellerie automobile, moto, broderie sur mesure.",
+                "Artisan sellier tapissier garnisseur à Champigneulles, Nancy, Meurthe-et-Moselle (54), Grand Est. Sellerie automobile, moto, broderie sur mesure.",
               url: "https://www.as-sellerie.fr",
               telephone: "+33651344141",
               email: "contact@as-sellerie.fr",
@@ -112,6 +112,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 streetAddress: "4 rue Anatole France",
                 addressLocality: "Champigneulles",
+                addressRegion: "Grand Est",
                 postalCode: "54250",
                 addressCountry: "FR",
               },

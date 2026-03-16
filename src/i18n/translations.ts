@@ -26,7 +26,7 @@ export const translations = {
       title1: "Votre Artisan",
       title2: "d\u2019Art",
       badge: "Artisan d\u2019Art",
-      badgeLocation: "Nancy \u00B7 France",
+      badgeLocation: "Nancy \u00B7 Meurthe-et-Moselle",
       p1: "Des ann\u00E9es m\u00EAmes avant la cons\u00E9cration \u00E0 mon artisanat, je soignais ma passion et mon exp\u00E9rience pour la r\u00E9alisation de beaux objets.",
       p2: "Le respect, et le travail bien fait sont plus que jamais mes valeurs, afin de garantir un r\u00E9sultat au plus juste de la branche traditionnelle, en perp\u00E9tuant les gestes et le savoir de nos artisans d\u2019hier.",
       p3: "Un savoir diversifi\u00E9 par les domaines de l\u2019auto, moto, camping-car, tapisserie, \u00E9quipement m\u00E9dical et nautique. Quel que soit votre besoin, de la cr\u00E9ation \u00E0 la r\u00E9novation, ou la personnalisation, je prendrai soin de vous conseiller.",
@@ -89,7 +89,7 @@ export const translations = {
     // Footer
     footer: {
       description:
-        "Sellier Tapissier Garnisseur \u2014 Artisan d\u2019art sp\u00E9cialis\u00E9 dans la sellerie automobile, moto et la broderie sur mesure depuis Nancy.",
+        "Sellier Tapissier Garnisseur \u2014 Artisan d\u2019art sp\u00E9cialis\u00E9 dans la sellerie automobile, moto et la broderie sur mesure \u00E0 Champigneulles, pr\u00E8s de Nancy, en Meurthe-et-Moselle (54).",
       contactTitle: "Contact",
       hours: "Lun \u2014 Sam : 09h00 \u2014 19h00",
       sitemapTitle: "Plan du site",
@@ -178,7 +178,7 @@ export const translations = {
       title1: "Your Master",
       title2: "Craftsman",
       badge: "Master Craftsman",
-      badgeLocation: "Nancy \u00B7 France",
+      badgeLocation: "Nancy \u00B7 Meurthe-et-Moselle",
       p1: "Years before fully dedicating myself to my craft, I was already nurturing my passion and expertise for creating beautiful objects.",
       p2: "Respect and quality workmanship are more than ever my core values, ensuring results true to traditional methods, perpetuating the gestures and knowledge of master craftsmen of yesterday.",
       p3: "A diverse expertise spanning automotive, motorcycle, camper van, upholstery, medical equipment and marine sectors. Whatever your needs\u2014from creation to renovation or customization\u2014I will take care to advise you.",
@@ -237,7 +237,7 @@ export const translations = {
     },
     footer: {
       description:
-        "Upholsterer & Trimmer \u2014 Master craftsman specializing in automotive and motorcycle upholstery and custom embroidery from Nancy, France.",
+        "Upholsterer & Trimmer \u2014 Master craftsman specializing in automotive and motorcycle upholstery and custom embroidery from Nancy, Meurthe-et-Moselle, Grand Est, France.",
       contactTitle: "Contact",
       hours: "Mon \u2014 Sat: 9:00 AM \u2014 7:00 PM",
       sitemapTitle: "Site Map",
